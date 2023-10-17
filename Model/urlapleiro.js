@@ -18,5 +18,5 @@ export const URLAP_LEIRO = {
             label : "Születési év",
             validation : "1900.01.01 - 2023.10.17 közötti érték"
         }
-    }
+    },
 }

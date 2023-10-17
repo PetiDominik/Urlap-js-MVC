@@ -9,6 +9,11 @@ class UrlapController {
         const URLAP = new UrlapModel();
         new UrlapView($("#urlap"), URLAP.getLeiro());
 
+
+        $(window).on("ujAdat", (event) => {
+            let datas = event.detail;
+            console.log(datas);
+        });
     }
 }
 

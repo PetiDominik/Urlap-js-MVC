@@ -20,19 +20,7 @@ class UrlapElem {
         this.#invalid = this.#formElem.children("div:last-child").children(`#invalid-${key}`);
 
         this.#inputElem.on("input", () => {
-            let val = this.#inputElem.val();
-            let regex = this.#adatok.pattern;
-            let regexObj = new RegExp(regex);
-            
-            if (regexObj.test(val)) {
-                this.#isValid = true;
-                this.#valid.removeClass("elrejt");
-                this.#invalid.addClass("elrejt");
-            } else {
-                this.#isValid = false;
-                this.#valid.addClass("elrejt");
-                this.#invalid.removeClass("elrejt");
-            }
+            this.#validation();
         });
     }
 
@@ -48,6 +36,33 @@ class UrlapElem {
         txt += `/><div id="valid-${this.#key}" class="elrejt">Ok</div><div id="invalid-${this.#key}" class="elrejt">${this.#adatok.extra.validation}</div></div>`;
 
         this.#formElem.append(txt);
+    }
+
+    #validation() {
+        let isValid = false;
+
+        switch (this.#adatok.type) {
+            case "date":
+                let dateVal = new Date(this.#inputElem.val());
+                
+                isValid = dateVal >= new Date(this.#adatok.min) && dateVal <=  new Date(this.#adatok.max);
+                break;
+            default:
+                let val = this.#inputElem.val();
+                let regex = this.#adatok.pattern;
+                isValid = new RegExp(regex).test(val);
+                break;
+        }
+
+        if (isValid) {
+            this.#isValid = true;
+            this.#valid.removeClass("elrejt");
+            this.#invalid.addClass("elrejt");
+        } else {
+            this.#isValid = false;
+            this.#valid.addClass("elrejt");
+            this.#invalid.removeClass("elrejt");
+        }
     }
 
     isValid() {

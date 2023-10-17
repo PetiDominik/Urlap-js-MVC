@@ -31,7 +31,8 @@ class UrlapView {
                 this.#urlapElemLista.forEach(element => {
                     this.#urlapAdat[element.getKey()] = element.getValue();
                 });
-                console.log(this.#urlapAdat);
+                
+                window.dispatchEvent(new CustomEvent("ujAdat", {detail : this.#urlapAdat}));
             }
 
         });
