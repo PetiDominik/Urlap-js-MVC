@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+input {
+    padding: 2px;
+    margin: 4px;
+    transition: 0.2s all;
+    border-radius: 5px;
+}
+
+input:hover {
+    padding: 4px;
+    margin: 2px;
+}
+
+form > div {
+    margin: 5px;
+}
+
+form > div label {
+    font-weight: bold;
+}
+
+.valid {
+    color: green;
+}
+
+.invalid {
+    color: red;
+}
+
+.elrejt {
+    display: none;
+}
+
