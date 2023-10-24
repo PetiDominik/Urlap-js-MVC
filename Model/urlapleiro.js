@@ -21,7 +21,7 @@ export const URLAP_LEIRO = {
     },
     elfogad : {
         type : "checkbox",
-        /* checked : null, */
+        checked : null,
         extra : {
             label : "Elfogadom az adatkezelési tájékoztatót",
             validation : "Fogadja el az adatkezelési tájékoztatót",

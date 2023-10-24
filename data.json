@@ -1,0 +1,16 @@
+{
+    "names": [
+        {
+            "nev": "Béla",
+            "szulEv": "1978-01-01",
+            "elfogad": true,
+            "szam" : 1
+        },
+        {
+            "nev": "Józsi",
+            "szulEv": "1978-01-01",
+            "elfogad": true,
+            "szam" : 5
+        }
+    ]
+}

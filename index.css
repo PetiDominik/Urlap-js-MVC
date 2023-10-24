@@ -7,7 +7,7 @@ body {
     height: 100vh;
 }
 
-input {
+/* input {
     padding: 2px;
     margin: 4px;
     transition: 0.2s all;
@@ -17,7 +17,7 @@ input {
 input:hover {
     padding: 4px;
     margin: 2px;
-}
+} */
 
 form > div {
     margin: 5px;
@@ -39,3 +39,41 @@ form > div label {
     display: none;
 }
 
+/*---------------------*/
+table th::first-letter {
+    text-transform:capitalize;
+}
+
+.kesz td {
+    background: #0d0;
+}
+
+.fa {
+    margin: auto 5px;
+}
+
+.fa-remove, .fa-check, .fa-trash, .fa-plus {
+    transition: 0.2s color;
+    cursor: pointer;
+}
+
+.fa-remove:hover {
+    color: #e00;
+}
+
+.fa-check:hover, .fa-plus:hover {
+    color: #0d0;
+}
+
+.fa-trash:hover {
+    color: #f00;
+}
+
+
+.valid {
+    color: #0d0;
+}
+
+.invalid {
+    color: #e00;
+}

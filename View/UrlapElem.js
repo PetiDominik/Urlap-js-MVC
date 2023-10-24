@@ -25,7 +25,8 @@ class UrlapElem {
     }
 
     #elem() {
-        let txt = `<div><label for="${this.#key}">${this.#adatok.extra.label}</label><input id="in-${this.#key}"`;
+        let txt = `<div class="mb-3 mt-3"><label for="${this.#key}" class="form-label">${this.#adatok.extra.label}</label><input id="in-${this.#key}" `
+            + (this.#adatok.type != "checkbox" ? `class="form-control"` : "");
 
         for (const key in this.#adatok) {
             if (key != "extra" && Object.hasOwnProperty.call(this.#adatok, key)) {
@@ -38,7 +39,7 @@ class UrlapElem {
                 }
             }
         }
-        txt += `/><div id="valid-${this.#key}" class="elrejt">Ok</div><div id="invalid-${this.#key}" class="elrejt">${this.#adatok.extra.validation}</div></div>`;
+        txt += `/><i class="fa fa-check fa-2x elrejt valid" id="valid-${this.#key}"></i><i class="fa fa-times fa-2x elrejt invalid" id="invalid-${this.#key}"></i></div>`;
 
         this.#formElem.append(txt);
     }
@@ -69,11 +70,13 @@ class UrlapElem {
         if (isValid) {
             this.#isValid = true;
             this.#valid.removeClass("elrejt");
-            this.#invalid.addClass("elrejt");
+            this.#invalid.addClass("elrejt");/* 
+            this.#inputElem.css("background-color", "green"); */
         } else {
             this.#isValid = false;
             this.#valid.addClass("elrejt");
-            this.#invalid.removeClass("elrejt");
+            this.#invalid.removeClass("elrejt");/* 
+            this.#inputElem.css("background-color", "red"); */
         }
     }
 
