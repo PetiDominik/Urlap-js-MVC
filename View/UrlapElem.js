@@ -30,7 +30,12 @@ class UrlapElem {
         for (const key in this.#adatok) {
             if (key != "extra" && Object.hasOwnProperty.call(this.#adatok, key)) {
                 const data = this.#adatok[key];
-                txt += ` ${key}="${data}"`;
+                if (data == null) {
+                    console.log(key);
+                    txt += ` ${key}`;
+                } else {
+                    txt += ` ${key}="${data}"`;
+                }
             }
         }
         txt += `/><div id="valid-${this.#key}" class="elrejt">Ok</div><div id="invalid-${this.#key}" class="elrejt">${this.#adatok.extra.validation}</div></div>`;
@@ -46,6 +51,13 @@ class UrlapElem {
                 let dateVal = new Date(this.#inputElem.val());
                 
                 isValid = dateVal >= new Date(this.#adatok.min) && dateVal <=  new Date(this.#adatok.max);
+                break;
+            case "checkbox":
+                isValid = this.#adatok.extra.needToBeChecked == this.#inputElem.is(":checked");
+                break;
+            case "number":
+                let num = this.#inputElem.val();
+                isValid = this.#adatok.extra.min <= num && num <= this.#adatok.extra.max;
                 break;
             default:
                 let val = this.#inputElem.val();

@@ -19,4 +19,22 @@ export const URLAP_LEIRO = {
             validation : "1900.01.01 - 2023.10.17 közötti érték"
         }
     },
+    elfogad : {
+        type : "checkbox",
+        /* checked : null, */
+        extra : {
+            label : "Elfogadom az adatkezelési tájékoztatót",
+            validation : "Fogadja el az adatkezelési tájékoztatót",
+            needToBeChecked : true
+        }
+    },
+    szam : {
+        type : "number",
+        extra : {
+            label : "Gondoljon egy számra 1-10 között",
+            validation : "A szám nem 1-10 között van",
+            min : 1,
+            max : 10
+        }
+    },
 }
